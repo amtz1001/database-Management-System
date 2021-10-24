@@ -1,3 +1,79 @@
-Database Management System
+Student Database Management System
+==================================
 
-Java Program connected to MySQL database for storing all client-related data. 
+
+About this Project
+------------------
+
+Java application created using NetBeans which is connected to a MySQL database that stores student data.
+
+Application allows users to enter student demographics and financial information. Users can add new students,
+update student information, delete students, calculate student balances, and make tuition payments. 
+
+Student data is displayed on an on-screen table which users can search or filter through. Student data can 
+also be printed out through application. 
+
+
+Getting Started
+---------------
+
+Prior to running application, MySql connection must be instantiated using own connection URL, 
+username, and password. Information can be added within clientDBMysql class before all methods. Database 
+needs to have table created with all appropriate fields. Table name must also be edited in SQL statements
+throughout source code.
+
+Using Application
+-----------------
+
+To add new students to database, enter student demographic information and click "Add New". Any 
+fields left blank will default to null. Student ID is required for all students and must 
+be unique to each student. Financial Information is preset but all fields can be edited. After 
+entering Total Credit Hours, Calculate Balance button can be used to populate Balance Due field or 
+this can be entered manually. 
+
+To make tuition payments, enter value into Payment Amount field and click "Apply Payment". Balance Due 
+field and Balance in table/database will be updated to reflect payment. 
+
+To update student information, select desired student from data table and all fields will populate with 
+previously entered information. Edit required fields and click "Update". MySql database and table will 
+update to reflect changes. 
+
+To delete students, select desired student from data table and click "Delete". MySql database and table 
+will be  updated to remove student information. 
+
+"Reset" button will revert student information section to blank fields and financial 
+information section to preset defaults. 
+
+"Print" button will open print window where desired Printer can be selected. 
+
+Search/Filter section can be used to narrow down data table to specific students. The database
+can be searched through using Student ID, Last Name, or Phone Number. Results can also be filtered by
+students with an existing balance or by class year(Freshman, Sophomore, Junior, Senior). Clear Filters 
+button will revert table to show all students in database. 
+
+"Exit" button will prompt a confirmation window, where confirmation will exit application. 
+
+
+Database Fields
+---------------
+id               int(11)      Unique         Auto Increment
+studentID        String(45)   Primary Key
+firstName        String(45)   Null
+lastName         String(45)   Null
+year             String(45)   Null
+phoneNumber      String(45)   Null
+email            String(45)   Null
+streetAddress    String(45)   Null
+city             String(45)   Null
+state            String(45)   Null
+zipCode          String(45)   Null
+creditHours      String(45)   Null
+balanceDue       Float        Null
+dueDate          String(45)   Null
+
+
+
+
+
+ 
+
