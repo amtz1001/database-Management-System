@@ -73,41 +73,44 @@ public class clientDBMysql extends javax.swing.JFrame {
                 
                 for (int i = 1; i <= q; i++){
                     columnData.add(rs.getString("id"));
-                    columnData.add(rs.getString("clientID"));
+                    columnData.add(rs.getString("studentID"));
                     columnData.add(rs.getString("firstName"));
                     columnData.add(rs.getString("lastName"));
+                    columnData.add(rs.getString("year"));
                     columnData.add(rs.getString("phoneNumber"));
                     columnData.add(rs.getString("email"));
                     columnData.add(rs.getString("streetAddress"));
                     columnData.add(rs.getString("city"));
                     columnData.add(rs.getString("state"));
                     columnData.add(rs.getString("zipCode"));
-                    columnData.add(rs.getString("priority"));
+                    columnData.add(rs.getString("creditHours"));
+                    columnData.add(rs.getString("balanceDue"));
+                    columnData.add(rs.getString("dueDate"));
                 }
                 
-                RecordTable.addRow(columnData);
-                    
-            }
-            
-            
-            
-            
+                RecordTable.addRow(columnData);   
+            }     
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
     
     public void resetFields(){
-        textClientID.setText("");
+        textSID.setText("");
         textFirstName.setText("");
         textLastName.setText("");
+        cbYear.setSelectedIndex(0);
         textPhoneNum.setText("");
         textEmail.setText("");
         textStreet.setText("");
         textCity.setText("");
-        comboBoxState.setSelectedIndex(0);
+        cbState.setSelectedIndex(0);
         textZip.setText("");
-        comboBoxPriority.setSelectedIndex(0);
+        textCredits.setText("0");
+        textBalance.setText("0.00");
+        textDueDate.setText("01/01/2021");
+        textPayment.setText("0.00");
+        
     }
     
     
@@ -116,28 +119,30 @@ public class clientDBMysql extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        textClientID = new javax.swing.JTextField();
-        textFirstName = new javax.swing.JTextField();
-        textLastName = new javax.swing.JTextField();
         textPhoneNum = new javax.swing.JTextField();
         textEmail = new javax.swing.JTextField();
         textStreet = new javax.swing.JTextField();
         textCity = new javax.swing.JTextField();
-        textZip = new javax.swing.JTextField();
-        comboBoxPriority = new javax.swing.JComboBox<>();
-        comboBoxState = new javax.swing.JComboBox<>();
+        cbState = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        textFirstName = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        cbYear = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        textLastName = new javax.swing.JTextField();
+        textSID = new javax.swing.JTextField();
+        textZip = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         dataTable = new javax.swing.JTable();
@@ -148,6 +153,35 @@ public class clientDBMysql extends javax.swing.JFrame {
         btnReset = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnPrint = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        btnFilter = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
+        cbFilter = new javax.swing.JComboBox<>();
+        textSearch = new javax.swing.JTextField();
+        cbSearch = new javax.swing.JComboBox<>();
+        btnClear = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        textPayment = new javax.swing.JTextField();
+        textDueDate = new javax.swing.JTextField();
+        textCost = new javax.swing.JTextField();
+        textCredits = new javax.swing.JTextField();
+        btnCalcBalance = new javax.swing.JButton();
+        btnAppPay = new javax.swing.JButton();
+        textBalance = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -160,88 +194,83 @@ public class clientDBMysql extends javax.swing.JFrame {
         jPanel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 4, true));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Email");
-        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 140, 30));
+        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 130, 25));
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setText("Client ID");
-        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 30));
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setText("Phone");
+        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 130, 25));
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setText("Last Name");
-        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 140, 30));
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setText("Address");
+        jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 130, 25));
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setText("Phone Number");
-        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 160, 30));
-
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setText("Street Address");
-        jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 160, 30));
-
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("City");
-        jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 140, 30));
+        jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 130, 25));
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setText("State");
-        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 140, 30));
+        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 130, 25));
 
-        jLabel11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel11.setText("Zip Code");
-        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 140, 30));
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 130, 25));
+        jPanel6.add(textPhoneNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 160, 25));
+        jPanel6.add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 160, 25));
+        jPanel6.add(textStreet, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 160, 25));
+        jPanel6.add(textCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 160, 25));
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel10.setText("Priority");
-        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 140, 30));
-        jPanel6.add(textClientID, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 240, 30));
-        jPanel6.add(textFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 240, 30));
-        jPanel6.add(textLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 240, 30));
-        jPanel6.add(textPhoneNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 240, 30));
-        jPanel6.add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 240, 30));
-        jPanel6.add(textStreet, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 240, 30));
-        jPanel6.add(textCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 240, 30));
-        jPanel6.add(textZip, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 240, 30));
+        cbState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AL", "AK", "AZ", "AR", "CA", "C", "CO", "CT", "DE", "DC", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" }));
+        jPanel6.add(cbState, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 160, 25));
 
-        comboBoxPriority.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Low", "Normal", "Important", "Critical" }));
-        comboBoxPriority.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBoxPriorityActionPerformed(evt);
-            }
-        });
-        jPanel6.add(comboBoxPriority, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 240, 30));
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("Student Information");
+        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 220, 20));
 
-        comboBoxState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AL", "AK", "AZ", "AR", "CA", "C", "CO", "CT", "DE", "DC", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" }));
-        comboBoxState.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBoxStateActionPerformed(evt);
-            }
-        });
-        jPanel6.add(comboBoxState, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 240, 30));
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setText("Student ID");
+        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 110, 25));
 
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel12.setText("First Name");
-        jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 140, 30));
+        jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 130, 25));
+        jPanel6.add(textFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 160, 25));
 
-        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 510, 540));
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel10.setText("Year");
+        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 60, 25));
+
+        cbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Freshman", "Sophomore", "Junior", "Senior", " " }));
+        jPanel6.add(cbYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 160, 25));
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setText("Surname");
+        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 130, 25));
+        jPanel6.add(textLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 160, 25));
+        jPanel6.add(textSID, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 160, 25));
+        jPanel6.add(textZip, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 160, 25));
+
+        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 660, 290));
 
         jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 4, true));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Client ID", "firstName", "lastName", "phoneNumber", "email", "streetAddress", "city", "state", "zipCode", "priority"
+                "ID", "SID", "First Name", "Last Name", "Year", "Phone", "Email", "Address", "City", "State", "Zip", "Total Credits", "Balance", "Due Date"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -255,9 +284,9 @@ public class clientDBMysql extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(dataTable);
 
-        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 740, 480));
+        jPanel7.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1280, 230));
 
-        jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 800, 540));
+        jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 1320, 270));
 
         jPanel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 4, true));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -316,19 +345,150 @@ public class clientDBMysql extends javax.swing.JFrame {
         });
         jPanel8.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 200, 50));
 
-        jPanel4.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 1320, 70));
+        jPanel4.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, 1320, 70));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 1360, 660));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 4));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel25.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("Search/Filter");
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 170, 20));
+
+        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 4));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel26.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("Courses");
+        jPanel9.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 220, 20));
+
+        jPanel3.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 330, 260));
+
+        jLabel13.setText("Search by");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 80, 25));
+
+        jLabel14.setText("Filter By");
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 80, 25));
+
+        btnFilter.setText("Filter");
+        btnFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFilterActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 100, 25));
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 90, 25));
+
+        cbFilter.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cbFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Balance Due", "Freshman", "Sophomore", "Junior", "Senior" }));
+        jPanel3.add(cbFilter, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 140, 25));
+        jPanel3.add(textSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 160, 25));
+
+        cbSearch.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cbSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Student ID", "Last Name", "Phone" }));
+        jPanel3.add(cbSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 100, 25));
+
+        btnClear.setText("Clear Filters");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 120, 25));
+
+        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, 310, 290));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 4));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("Payments");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 220, 20));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 4));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("Courses");
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 220, 20));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 330, 260));
+
+        jLabel31.setText("Total Credit Hours");
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 140, 25));
+
+        jLabel32.setText("Cost Per Credit");
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 140, 25));
+
+        jLabel33.setText("Balance Due");
+        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 140, 25));
+
+        jLabel34.setText("Payment Amount");
+        jPanel1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 140, 25));
+
+        jLabel30.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel30.setText("Financial Information");
+        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 220, 20));
+
+        jLabel35.setText("Due Date");
+        jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, 25));
+
+        textPayment.setText("0.00");
+        jPanel1.add(textPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 120, 25));
+
+        textDueDate.setText("01/01/2021");
+        jPanel1.add(textDueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 120, 25));
+
+        textCost.setText("305.00");
+        jPanel1.add(textCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 120, 25));
+
+        textCredits.setText("0");
+        jPanel1.add(textCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 120, 25));
+
+        btnCalcBalance.setText("Calculate Balance");
+        btnCalcBalance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcBalanceActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCalcBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, 30));
+
+        btnAppPay.setText("Apply Payment");
+        btnAppPay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppPayActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAppPay, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, -1, 30));
+
+        textBalance.setText("0.00");
+        jPanel1.add(textBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 120, 25));
+
+        jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 330, 290));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 1360, 700));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel1.setText("Client Database Management System ");
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 1040, 60));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 40)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Student Management System ");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 690, 60));
 
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1360, 90));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 710, 60));
 
         pack();
         setLocationRelativeTo(null);
@@ -351,7 +511,7 @@ public class clientDBMysql extends javax.swing.JFrame {
                     pst.setInt(1, id);
                     pst.executeUpdate();
                     
-                    JOptionPane.showMessageDialog(this, "Client Data Removed");
+                    JOptionPane.showMessageDialog(this, "Student Data Removed");
                     updateTable();
                     resetFields();
                     
@@ -364,7 +524,7 @@ public class clientDBMysql extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
-        MessageFormat header = new MessageFormat("Client Data");
+        MessageFormat header = new MessageFormat("Student Data");
         MessageFormat footer = new MessageFormat("Page {0, number, integer}");
         
         try {
@@ -385,24 +545,27 @@ public class clientDBMysql extends javax.swing.JFrame {
             
             Class.forName("com.mysql.jdbc.Driver");
                 sqlConn = DriverManager.getConnection(dataConn, username, password);
-                    pst = sqlConn.prepareStatement("update clientData set clientID = ?,firstName = ?, lastName = ?, phoneNumber = ?,"
-                            + "email = ?,streetAddress = ?,city = ?,state = ?,zipCode = ?,priority = ?"
+                    pst = sqlConn.prepareStatement("update clientData set studentID = ?,firstName = ?, lastName = ?, year = ?, phoneNumber = ?,"
+                            + "email = ?,streetAddress = ?,city = ?,state = ?,zipCode = ?, creditHours = ?, balanceDue = ?, dueDate = ?"
                             + "where id = ?");
                     
-                    pst.setString(1, textClientID.getText());
+                    pst.setString(1, textSID.getText());
                     pst.setString(2, textFirstName.getText());
                     pst.setString(3, textLastName.getText());
-                    pst.setString(4, textPhoneNum.getText());
-                    pst.setString(5, textEmail.getText());
-                    pst.setString(6, textStreet.getText());
-                    pst.setString(7, textCity.getText());
-                    pst.setString(8, (String) comboBoxState.getSelectedItem());
-                    pst.setString(9, textZip.getText());
-                    pst.setString(10, (String) comboBoxPriority.getSelectedItem());
-                    pst.setInt(11, id);
+                    pst.setString(4, (String) cbYear.getSelectedItem());
+                    pst.setString(5, textPhoneNum.getText());
+                    pst.setString(6, textEmail.getText());
+                    pst.setString(7, textStreet.getText());
+                    pst.setString(8, textCity.getText());
+                    pst.setString(9, (String) cbState.getSelectedItem());
+                    pst.setString(10, textZip.getText());
+                    pst.setString(11, textCredits.getText());
+                    pst.setString(12, textBalance.getText());
+                    pst.setString(13, textDueDate.getText());
+                    pst.setInt(14, id);
                     
                     pst.executeUpdate();
-                    JOptionPane.showMessageDialog(this, "Client Data Updated");
+                    JOptionPane.showMessageDialog(this, "Student Data Updated");
                     updateTable();
                 
             
@@ -412,18 +575,10 @@ public class clientDBMysql extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(clientDBMysql.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void comboBoxPriorityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPriorityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboBoxPriorityActionPerformed
-
-    private void comboBoxStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxStateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboBoxStateActionPerformed
     private JFrame frame;
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         frame = new JFrame("Exit");
-        if (JOptionPane.showConfirmDialog(frame, "Are you sure you would like to exit?", "Client Management", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION){
+        if (JOptionPane.showConfirmDialog(frame, "Are you sure you would like to exit?", "Student Management", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION){
             System.exit(0);
         }
     }//GEN-LAST:event_btnExitActionPerformed
@@ -433,22 +588,26 @@ public class clientDBMysql extends javax.swing.JFrame {
             
             Class.forName("com.mysql.jdbc.Driver");
             sqlConn = DriverManager.getConnection(dataConn,username,password);
-            pst = sqlConn.prepareStatement("insert into clientData(clientID, firstName, lastName, phoneNumber, email, streetAddress, city, state, zipCode, priority)values"
-                    + "(?,?,?,?,?,?,?,?,?,?)");
+            pst = sqlConn.prepareStatement("insert into clientData(studentID, firstName, lastName, year, phoneNumber, email, streetAddress, city, state, zipCode, creditHours, balanceDue, dueDate)values"
+                    + "(?,?,?,?,?,?,?,?,?,?,?,?,?)");
             
-            pst.setString(1, textClientID.getText());
+            pst.setString(1, textSID.getText());
             pst.setString(2, textFirstName.getText());
             pst.setString(3, textLastName.getText());
-            pst.setString(4, textPhoneNum.getText());
-            pst.setString(5, textEmail.getText());
-            pst.setString(6, textStreet.getText());
-            pst.setString(7, textCity.getText());
-            pst.setString(8, (String) comboBoxState.getSelectedItem());
-            pst.setString(9, textZip.getText());
-            pst.setString(10, (String) comboBoxPriority.getSelectedItem());
+            pst.setString(4, (String) cbYear.getSelectedItem());
+            pst.setString(5, textPhoneNum.getText());
+            pst.setString(6, textEmail.getText());
+            pst.setString(7, textStreet.getText());
+            pst.setString(8, textCity.getText());
+            pst.setString(9, (String) cbState.getSelectedItem());
+            pst.setString(10, textZip.getText());
+            pst.setString(11, textCredits.getText());
+            pst.setString(12, textBalance.getText());
+            pst.setString(13, textDueDate.getText());
+            
             
             pst.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Client Data Submitted");
+            JOptionPane.showMessageDialog(this, "Student Data Submitted");
             
             updateTable();
             resetFields();
@@ -465,16 +624,20 @@ public class clientDBMysql extends javax.swing.JFrame {
         DefaultTableModel RecordTable = (DefaultTableModel)dataTable.getModel();
         int SelectedRows = dataTable.getSelectedRow();
         
-        textClientID.setText(RecordTable.getValueAt(SelectedRows,1).toString());
+        textSID.setText(RecordTable.getValueAt(SelectedRows,1).toString());
         textFirstName.setText(RecordTable.getValueAt(SelectedRows,2).toString());
         textLastName.setText(RecordTable.getValueAt(SelectedRows,3).toString());
-        textPhoneNum.setText(RecordTable.getValueAt(SelectedRows,4).toString());
-        textEmail.setText(RecordTable.getValueAt(SelectedRows,5).toString());
-        textStreet.setText(RecordTable.getValueAt(SelectedRows,6).toString());
-        textCity.setText(RecordTable.getValueAt(SelectedRows,7).toString());
-        comboBoxState.setSelectedItem(RecordTable.getValueAt(SelectedRows,8).toString());
-        textZip.setText(RecordTable.getValueAt(SelectedRows,9).toString());
-        comboBoxPriority.setSelectedItem(RecordTable.getValueAt(SelectedRows,10).toString());
+        cbYear.setSelectedItem(RecordTable.getValueAt(SelectedRows,4).toString());
+        textPhoneNum.setText(RecordTable.getValueAt(SelectedRows,5).toString());
+        textEmail.setText(RecordTable.getValueAt(SelectedRows,6).toString());
+        textStreet.setText(RecordTable.getValueAt(SelectedRows,7).toString());
+        textCity.setText(RecordTable.getValueAt(SelectedRows,8).toString());
+        cbState.setSelectedItem(RecordTable.getValueAt(SelectedRows,9).toString());
+        textZip.setText(RecordTable.getValueAt(SelectedRows,10).toString());
+        textCredits.setText(RecordTable.getValueAt(SelectedRows,11).toString());
+        textBalance.setText(RecordTable.getValueAt(SelectedRows,12).toString());
+        textDueDate.setText(RecordTable.getValueAt(SelectedRows,13).toString());
+
        
     }//GEN-LAST:event_dataTableMouseClicked
 
@@ -483,6 +646,160 @@ public class clientDBMysql extends javax.swing.JFrame {
         resetFields();
         
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnCalcBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcBalanceActionPerformed
+        try {
+            double credits = Double.parseDouble(textCredits.getText());
+            double cost = Double.parseDouble(textCost.getText()); 
+        
+            textBalance.setText(Double.toString(credits*cost));
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(this, "Invalid Data Entered");
+        }          
+    }//GEN-LAST:event_btnCalcBalanceActionPerformed
+
+    private void btnAppPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppPayActionPerformed
+        DefaultTableModel RecordTable = (DefaultTableModel)dataTable.getModel();
+        int SelectedRows = dataTable.getSelectedRow();
+        
+        try {
+            double payment = Double.parseDouble(textPayment.getText());
+            double balance = Double.parseDouble(textBalance.getText()); 
+        
+            textBalance.setText(Double.toString(balance-payment));
+        
+            int id = Integer.parseInt(RecordTable.getValueAt(SelectedRows, 0).toString());
+            
+            Class.forName("com.mysql.jdbc.Driver");
+                sqlConn = DriverManager.getConnection(dataConn, username, password);
+                    pst = sqlConn.prepareStatement("update clientData set balanceDue = ? where id = ?");
+                    
+
+                    pst.setString(1, textBalance.getText());
+                    pst.setInt(2, id);
+                    
+                    pst.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Student Balance Updated");
+                    updateTable();
+                    resetFields();
+ 
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(this, "Invalid Data Entered");
+        }
+    }//GEN-LAST:event_btnAppPayActionPerformed
+
+    private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
+        int q;
+        try {
+                     
+            String selectStatement = "";
+            if ((String) cbFilter.getSelectedItem() == "Balance Due"){
+                selectStatement = "balanceDue > 0";
+            } else if ((String) cbFilter.getSelectedItem() == "Freshman"){
+                selectStatement = "year = 'Freshman'";
+            } else if ((String) cbFilter.getSelectedItem() == "Sophomore"){
+                selectStatement = "year = 'Sophomore'";
+            } else if ((String) cbFilter.getSelectedItem() == "Junior"){
+                selectStatement = "year = 'Junior'";
+            } else if ((String) cbFilter.getSelectedItem() == "Senior"){
+                selectStatement = "year = 'Senior'";
+            } 
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            sqlConn = DriverManager.getConnection(dataConn,username,password);
+            pst = sqlConn.prepareStatement("select * from clientData where " + selectStatement);
+            
+            rs = pst.executeQuery();
+            ResultSetMetaData clData = rs.getMetaData ();
+            
+            q = clData.getColumnCount();
+            
+            DefaultTableModel RecordTable = (DefaultTableModel)dataTable.getModel();
+            RecordTable.setRowCount(0);
+            
+            while(rs.next()){
+                Vector columnData = new Vector();
+                
+                for (int i = 1; i <= q; i++){
+                    columnData.add(rs.getString("id"));
+                    columnData.add(rs.getString("studentID"));
+                    columnData.add(rs.getString("firstName"));
+                    columnData.add(rs.getString("lastName"));
+                    columnData.add(rs.getString("year"));
+                    columnData.add(rs.getString("phoneNumber"));
+                    columnData.add(rs.getString("email"));
+                    columnData.add(rs.getString("streetAddress"));
+                    columnData.add(rs.getString("city"));
+                    columnData.add(rs.getString("state"));
+                    columnData.add(rs.getString("zipCode"));
+                    columnData.add(rs.getString("creditHours"));
+                    columnData.add(rs.getString("balanceDue"));
+                    columnData.add(rs.getString("dueDate"));
+                }
+                
+                RecordTable.addRow(columnData);   
+            }     
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_btnFilterActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        int q;
+        try {
+            
+            String searchData = textSearch.getText();            
+            String selectStatement = "";
+            if ((String) cbSearch.getSelectedItem() == "Student ID"){
+                selectStatement = ("studentID = " + searchData);
+            } else if ((String) cbSearch.getSelectedItem() == "Last Name"){
+                selectStatement = ("lastName = '" + searchData + "'");
+            } else if ((String) cbSearch.getSelectedItem() == "Phone"){
+                selectStatement = ("phoneNumber = '" + searchData + "'");
+            } 
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            sqlConn = DriverManager.getConnection(dataConn,username,password);
+            pst = sqlConn.prepareStatement("select * from clientData where " + selectStatement);
+            
+            rs = pst.executeQuery();
+            ResultSetMetaData clData = rs.getMetaData ();
+            
+            q = clData.getColumnCount();
+            
+            DefaultTableModel RecordTable = (DefaultTableModel)dataTable.getModel();
+            RecordTable.setRowCount(0);
+            
+            while(rs.next()){
+                Vector columnData = new Vector();
+                
+                for (int i = 1; i <= q; i++){
+                    columnData.add(rs.getString("id"));
+                    columnData.add(rs.getString("studentID"));
+                    columnData.add(rs.getString("firstName"));
+                    columnData.add(rs.getString("lastName"));
+                    columnData.add(rs.getString("year"));
+                    columnData.add(rs.getString("phoneNumber"));
+                    columnData.add(rs.getString("email"));
+                    columnData.add(rs.getString("streetAddress"));
+                    columnData.add(rs.getString("city"));
+                    columnData.add(rs.getString("state"));
+                    columnData.add(rs.getString("zipCode"));
+                    columnData.add(rs.getString("creditHours"));
+                    columnData.add(rs.getString("balanceDue"));
+                    columnData.add(rs.getString("dueDate"));
+                }
+                
+                RecordTable.addRow(columnData);   
+            }     
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        updateTable();
+    }//GEN-LAST:event_btnClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -521,37 +838,68 @@ public class clientDBMysql extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddNew;
+    private javax.swing.JButton btnAppPay;
+    private javax.swing.JButton btnCalcBalance;
+    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnFilter;
     private javax.swing.JButton btnPrint;
     private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JComboBox<String> comboBoxPriority;
-    private javax.swing.JComboBox<String> comboBoxState;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cbFilter;
+    private javax.swing.JComboBox<String> cbSearch;
+    private javax.swing.JComboBox<String> cbState;
+    private javax.swing.JComboBox<String> cbYear;
     private javax.swing.JTable dataTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField textBalance;
     private javax.swing.JTextField textCity;
-    private javax.swing.JTextField textClientID;
+    private javax.swing.JTextField textCost;
+    private javax.swing.JTextField textCredits;
+    private javax.swing.JTextField textDueDate;
     private javax.swing.JTextField textEmail;
     private javax.swing.JTextField textFirstName;
     private javax.swing.JTextField textLastName;
+    private javax.swing.JTextField textPayment;
     private javax.swing.JTextField textPhoneNum;
+    private javax.swing.JTextField textSID;
+    private javax.swing.JTextField textSearch;
     private javax.swing.JTextField textStreet;
     private javax.swing.JTextField textZip;
     // End of variables declaration//GEN-END:variables
